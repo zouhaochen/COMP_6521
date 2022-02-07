@@ -23,11 +23,17 @@ public class RandomNumber
 
         while(!userInput.matches(regex))
         {
-            System.out.println("\nPlease input a valid integer.");
+            System.out.println("Please input a valid integer.");
             userInput = keyboard.nextLine();
         }
 
         numberOfRandomInteger = Integer.parseInt(userInput);
+        if(numberOfRandomInteger>100000)
+        {
+            System.out.println("Can only contain maximum of 100000 integers.");
+            System.out.println("Number of random integer will be set to 100000");
+            numberOfRandomInteger = 100000;
+        }
 
         System.out.println("\nPlease input the minimum value of random integer:");
         userInputMinValue = keyboard.nextLine();
@@ -38,7 +44,7 @@ public class RandomNumber
             {
                 if(userInputMinValue.charAt(1) == '0')
                 {
-                    System.out.println("\nPlease input a valid integer.");
+                    System.out.println("Please input a valid integer.");
                     userInputMinValue = keyboard.nextLine();
                     continue;
                 }
@@ -49,7 +55,7 @@ public class RandomNumber
             {
                 if(userInputMinValue.charAt(0) == '0' && userInputMinValue.charAt(1) == '0')
                 {
-                    System.out.println("\nPlease input a valid integer.");
+                    System.out.println("Please input a valid integer.");
                     userInputMinValue = keyboard.nextLine();
                     continue;
                 }
@@ -62,7 +68,7 @@ public class RandomNumber
             }
             else
             {
-                System.out.println("\nPlease input a valid integer.");
+                System.out.println("Please input a valid integer.");
                 userInputMinValue = keyboard.nextLine();
                 continue;
             }
@@ -79,7 +85,7 @@ public class RandomNumber
             {
                 if(userInputMaxValue.charAt(1) == '0')
                 {
-                    System.out.println("\nPlease input a valid integer.");
+                    System.out.println("Please input a valid integer.");
                     userInputMaxValue = keyboard.nextLine();
                     continue;
                 }
@@ -90,7 +96,7 @@ public class RandomNumber
             {
                 if(userInputMaxValue.charAt(0) == '0' && userInputMaxValue.charAt(1) == '0')
                 {
-                    System.out.println("\nPlease input a valid integer.");
+                    System.out.println("Please input a valid integer.");
                     userInputMaxValue = keyboard.nextLine();
                     continue;
                 }
@@ -103,7 +109,7 @@ public class RandomNumber
             }
             else
             {
-                System.out.println("\nPlease input a valid integer.");
+                System.out.println("Please input a valid integer.");
                 userInputMaxValue = keyboard.nextLine();
                 continue;
             }
