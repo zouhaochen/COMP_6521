@@ -1,5 +1,8 @@
 package assignment1;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 import static assignment1.RandomNumber.randomListCreation;
@@ -32,6 +35,21 @@ public class Main
                     System.out.println();
                     randomList = randomListCreation();
                     System.out.println("Random list of integers is created.");
+
+                    try
+                    {
+                        BufferedWriter out = new BufferedWriter(new FileWriter("input.txt"));
+                        for(int i = 0; i < randomList.length; i++)
+                        {
+                            out.write(String.valueOf(randomList[i])+"\r\n");
+                        }
+                        out.close();
+                        System.out.println("Random list text file is created");
+                    }
+                    catch (IOException e)
+                    {
+                        System.out.println("Exception occurs");
+                    }
                     System.out.println();
                     break;
                 case "2":

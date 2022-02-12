@@ -35,7 +35,7 @@ public class RandomNumber
             numberOfRandomInteger = 100000;
         }
 
-        System.out.println("\nPlease input the minimum value of random integer:");
+        System.out.println("Please input the minimum value of random integer:");
         userInputMinValue = keyboard.nextLine();
 
         while(true)
@@ -76,7 +76,7 @@ public class RandomNumber
 
         minValue = Integer.parseInt(userInputMinValue);
 
-        System.out.println("\nPlease input the maximum value of random integer:");
+        System.out.println("Please input the maximum value of random integer:");
         userInputMaxValue = keyboard.nextLine();
 
         while(true)
@@ -132,4 +132,6 @@ public class RandomNumber
         Random random = new Random();
         return random.ints(min, (max+1)).limit(1).findFirst().getAsInt();
     }
+
+
 }
