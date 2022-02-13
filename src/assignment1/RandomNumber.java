@@ -38,39 +38,44 @@ public class RandomNumber
         System.out.println("Please input the minimum value of random integer:");
         userInputMinValue = keyboard.nextLine();
 
-        while(true)
+        while (true)
         {
-            if(userInputMinValue.matches("^-[0-9]*[1-9][0-9]*$"))
+            while (true)
             {
-                if(userInputMinValue.charAt(1) == '0')
+                if (userInputMinValue.matches("^-[0-9]*[1-9][0-9]*$"))
                 {
+                    if (userInputMinValue.charAt(1) == '0') {
+                        System.out.println("Please input a valid integer.");
+                        userInputMinValue = keyboard.nextLine();
+                        continue;
+                    } else
+                        break;
+                } else if (userInputMinValue.matches("^[0-9]*[1-9][0-9]*$"))
+                {
+                    if (userInputMinValue.charAt(0) == '0' && userInputMinValue.charAt(1) == '0') {
+                        System.out.println("Please input a valid integer.");
+                        userInputMinValue = keyboard.nextLine();
+                        continue;
+                    } else
+                        break;
+                } else if (userInputMinValue.equals("0")) {
+                    break;
+                } else {
                     System.out.println("Please input a valid integer.");
                     userInputMinValue = keyboard.nextLine();
                     continue;
                 }
-                else
-                    break;
             }
-            else if (userInputMinValue.matches("^[0-9]*[1-9][0-9]*$"))
-            {
-                if(userInputMinValue.charAt(0) == '0' && userInputMinValue.charAt(1) == '0')
-                {
-                    System.out.println("Please input a valid integer.");
-                    userInputMinValue = keyboard.nextLine();
-                    continue;
-                }
-                else
-                    break;
-            }
-            else if (userInputMinValue.equals("0"))
-            {
-                break;
-            }
-            else
+            minValue = Integer.parseInt(userInputMinValue);
+            if(minValue<0)
             {
                 System.out.println("Please input a valid integer.");
                 userInputMinValue = keyboard.nextLine();
                 continue;
+            }
+            else
+            {
+                break;
             }
         }
 
@@ -79,39 +84,50 @@ public class RandomNumber
         System.out.println("Please input the maximum value of random integer:");
         userInputMaxValue = keyboard.nextLine();
 
+
         while(true)
         {
-            if(userInputMaxValue.matches("^-[0-9]*[1-9][0-9]*$"))
-            {
-                if(userInputMaxValue.charAt(1) == '0')
-                {
+            while (true) {
+                if (userInputMaxValue.matches("^-[0-9]*[1-9][0-9]*$")) {
+                    if (userInputMaxValue.charAt(1) == '0') {
+                        System.out.println("Please input a valid integer.");
+                        userInputMaxValue = keyboard.nextLine();
+                        continue;
+                    } else
+                        break;
+                } else if (userInputMaxValue.matches("^[0-9]*[1-9][0-9]*$")) {
+                    if (userInputMaxValue.charAt(0) == '0' && userInputMaxValue.charAt(1) == '0') {
+                        System.out.println("Please input a valid integer.");
+                        userInputMaxValue = keyboard.nextLine();
+                        continue;
+                    } else
+                        break;
+                } else if (userInputMaxValue.equals("0")) {
+                    break;
+                } else {
                     System.out.println("Please input a valid integer.");
                     userInputMaxValue = keyboard.nextLine();
                     continue;
                 }
-                else
-                    break;
             }
-            else if (userInputMaxValue.matches("^[0-9]*[1-9][0-9]*$"))
+
+            maxValue = Integer.parseInt(userInputMaxValue);
+
+            if(maxValue<minValue)
             {
-                if(userInputMaxValue.charAt(0) == '0' && userInputMaxValue.charAt(1) == '0')
-                {
-                    System.out.println("Please input a valid integer.");
-                    userInputMaxValue = keyboard.nextLine();
-                    continue;
-                }
-                else
-                    break;
+                System.out.println("Please input a valid maximum value.");
+                userInputMaxValue = keyboard.nextLine();
+                continue;
             }
-            else if (userInputMaxValue.equals("0"))
-            {
-                break;
-            }
-            else
+            else if(maxValue<0)
             {
                 System.out.println("Please input a valid integer.");
                 userInputMaxValue = keyboard.nextLine();
                 continue;
+            }
+            else
+            {
+                break;
             }
         }
 

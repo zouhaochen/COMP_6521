@@ -33,15 +33,19 @@ public class Main
             switch (inputChoice)
             {
                 case "1":
-                    System.out.println();
+                    String path = "./src/assignment1/input.txt";
+                    File f = new File(path);
+                    if (f.isFile())
+                    {
+                        f.delete();
+                    }
+
                     randomList = RandomNumber.randomListCreation();
                     System.out.println("Random list of integers is created.");
 
                     try
                     {
-                        String path = "./src/assignment1/input.txt";
-
-                        File f = new File(path);
+                        f = new File(path);
                         BufferedWriter out = new BufferedWriter(new FileWriter(f,true));
                         for(int i = 0; i < randomList.length; i++)
                         {
@@ -57,6 +61,7 @@ public class Main
                     System.out.println();
                     break;
                 case "2":
+                    DisplayRandom.displayRandom();
                     break;
                 case "3":
                     break;
