@@ -4,6 +4,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -33,19 +35,15 @@ public class Main
             switch (inputChoice)
             {
                 case "1":
-                    String path = "./src/assignment1/input.txt";
-                    File f = new File(path);
-                    if (f.isFile())
-                    {
-                        f.delete();
-                    }
-
+                    System.out.println();
                     randomList = RandomNumber.randomListCreation();
                     System.out.println("Random list of integers is created.");
 
                     try
                     {
-                        f = new File(path);
+                        String path = "./src/assignment1/input.txt";
+
+                        File f = new File(path);
                         BufferedWriter out = new BufferedWriter(new FileWriter(f,true));
                         for(int i = 0; i < randomList.length; i++)
                         {
@@ -61,9 +59,11 @@ public class Main
                     System.out.println();
                     break;
                 case "2":
-                    DisplayRandom.displayRandom();
                     break;
                 case "3":
+                    ArrayList<Integer> input = Phase1.input();
+                    List<List<Integer>> blocks = Phase1.sortBlocks(input);
+                    Phase1.generateSubFiles(blocks);
                     break;
                 case "4":
                     flag = false;
