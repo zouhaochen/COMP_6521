@@ -16,7 +16,7 @@ public class DisplayRandom
         try
         {
             fis = new FileInputStream(file);
-            System.out.println("\nTotal file size to read (in bytes) : " + fis.available());
+            System.out.println("\nTotal file size to read (in bytes): " + fis.available() + ".");
             int content;
 
             while ((content = fis.read()) != -1)
