@@ -11,8 +11,6 @@ import java.util.Scanner;
 
 public class Main
 {
-    static Scanner keyboard = new Scanner(System.in);
-
     public static void main(String[] args)
     {
         int[] randomList;
@@ -25,6 +23,7 @@ public class Main
             System.out.println("2. Display the random list.");
             System.out.println("3. Run 2PMMS.");
             System.out.println("4. Exit.");
+            Scanner keyboard = new Scanner(System.in);
             String inputChoice = keyboard.nextLine();
 
             while (!inputChoice.equals("1") && !inputChoice.equals("2") && !inputChoice.equals("3") && !inputChoice.equals("4")) {
@@ -35,13 +34,18 @@ public class Main
             switch (inputChoice)
             {
                 case "1":
+                    String path = "./src/assignment1/input.txt";
+                    File fileCheck = new File(path);
+                    if(fileCheck.exists())
+                    {
+                        fileCheck.delete();
+                    }
+
                     System.out.println();
                     randomList = RandomNumber.randomListCreation();
                     System.out.println("Random list of integers is created.");
-
                     try
                     {
-                        String path = "./src/assignment1/input.txt";
 
                         File f = new File(path);
                         BufferedWriter out = new BufferedWriter(new FileWriter(f,true));
@@ -60,6 +64,7 @@ public class Main
                     break;
                 case "2":
                     DisplayRandom.displayRandom();
+                    System.out.println();
                     break;
                 case "3":
                     ArrayList<Integer> input = Phase1.input();

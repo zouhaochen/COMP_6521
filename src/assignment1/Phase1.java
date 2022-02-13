@@ -58,7 +58,7 @@ public class Phase1 {
         for (int i = 0; i < Blocks.size(); i++){
             try
             {
-                String path = "./src/assignment1/subFile" + (i+1) + ".txt";
+                String path = "./src/assignment1/subfile/subFile" + (i+1) + ".txt";
 
                 File f = new File(path);
                 BufferedWriter out = new BufferedWriter(new FileWriter(f,true));
@@ -66,6 +66,7 @@ public class Phase1 {
                 {
                     out.write(each +"\r\n");
                 }
+                out.close();
             }
             catch (IOException e)
             {
