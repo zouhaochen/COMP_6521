@@ -16,7 +16,7 @@ public class RandomNumber
         int minValue = 0;
         int maxValue = 0;
 
-        System.out.println("Create a random number list.");
+        System.out.println("\nCreate a random number list.");
         System.out.println("Please input the number of random integers to generate:");
         Scanner keyboard = new Scanner(System.in);
         userInput = keyboard.nextLine();
