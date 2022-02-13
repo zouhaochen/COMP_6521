@@ -67,6 +67,8 @@ public class Main
                     System.out.println();
                     break;
                 case "3":
+                    String pathCheck = "./src/assignment1/subfile";
+                    Phase1.delAllFile(pathCheck);
                     ArrayList<Integer> input = Phase1.input();
                     List<List<Integer>> blocks = Phase1.sortBlocks(input);
                     Phase1.generateSubFiles(blocks);

@@ -2,7 +2,9 @@ package assignment1;
 import java.io.*;
 import java.util.*;
 
-public class Phase1 {
+public class Phase1
+{
+
     //read input file and form an array
     public static ArrayList<Integer> input(){
         Scanner sc = null;
@@ -54,8 +56,11 @@ public class Phase1 {
         }
         return al;
     }
-    public static void generateSubFiles(List<List<Integer>> Blocks){
-        for (int i = 0; i < Blocks.size(); i++){
+
+    public static void generateSubFiles(List<List<Integer>> Blocks)
+    {
+        for (int i = 0; i < Blocks.size(); i++)
+        {
             try
             {
                 String path = "./src/assignment1/subfile/subFile" + (i+1) + ".txt";
@@ -73,5 +78,35 @@ public class Phase1 {
                 System.out.println("Exception occurs");
             }
         }
+    }
+
+    public static boolean delAllFile(String path)
+    {
+        boolean flag = false;
+        File file = new File(path);
+        if (!file.exists())
+        {
+            return flag;
+        }
+        if (!file.isDirectory()) {
+            return flag;
+        }
+        String[] tempList = file.list();
+        File temp = null;
+        for (int i = 0; i < tempList.length; i++) {
+            if (path.endsWith(File.separator)) {
+                temp = new File(path + tempList[i]);
+            } else {
+                temp = new File(path + File.separator + tempList[i]);
+            }
+            if (temp.isFile()) {
+                temp.delete();
+            }
+            if (temp.isDirectory()) {
+                delAllFile(path + "/" + tempList[i]);
+                flag = true;
+            }
+        }
+        return flag;
     }
 }
