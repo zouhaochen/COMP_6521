@@ -9,61 +9,122 @@ import java.lang.Object;
 import java.util.LinkedList;
 
 public class Phase2 {
-//  public static class ListNode {
-//      int val;
-//      ListNode next;
-//      ListNode() {}
-//      ListNode(int val) { this.val = val; }
-//      ListNode(int val, ListNode next) { this.val = val; this.next = next; }
-//      public static addNode()
-//  }
+
     //Merge sorting for all sub lists
-    public static  void sortList (int BlockNum){
+    public static List<List<Integer>>sortList (int BlockNum) {
         Scanner sc = null;
-//        List<List<Integer>> readInput = new ArrayList<>();
+        List<List<Integer>> readInput = new ArrayList<>();
 
         //read all subFiles
-        for(int i = 0; i < BlockNum; i++){
-//            List<Integer> subInput = new ArrayList<>();
-            LinkedList<Integer> subInput = new LinkedList<>();
+        for (int i = 0; i < BlockNum; i++) {
+            List<Integer> subInput = new ArrayList<>();
             try {
-                sc = new Scanner(new FileInputStream("./src/assignment1/subFile" + (i+1) + ".txt"));
-            }catch (FileNotFoundException e){
+                sc = new Scanner(new FileInputStream("./src/assignment1/subfile/subFile" + (i + 1) + ".txt"));
+            } catch (FileNotFoundException e) {
                 System.out.println("Could not open input file");
                 System.exit(0);
             }
-            while (sc.hasNextLine()){
+            while (sc.hasNextLine()) {
                 String num = sc.nextLine();
-                subInput.addLast(Integer.parseInt(num));
+                subInput.add(Integer.parseInt(num));
             }
-//            readInput.add(subInput);
+            readInput.add(subInput);
+            System.out.println(subInput);
         }
-//        for(int i = 0; i < readInput.size(); i +=2){
-//            for (int index1 = 0, index2 = 0; index2 < readInput.get(i+1).size(); index1++) {
-//                if (index1 == readInput.get(i).size() || readInput.get(i).get(index1) > readInput.get(i+1).get(index2)) {
-//                    readInput.get(i).add(index1, readInput.get(i+1).get(index2++));
-//                }
-//            }
+        System.out.println(readInput);
+        return readInput;
+
+//    /* Method to print linked list */
+//    void printList()
+//    {
+//        ListNode temp = head;
+//        while (temp != null)
+//        {
+//            System.out.print(temp.val + " ");
+//            temp = temp.next;
 //        }
-//        public ListNode mergeTwoLists(ListNode l1, ListNode l2) {
-//            if (l1 == null) {
-//                return l2;
-//            }
-//            else if (l2 == null) {
-//                return l1;
-//            }
-//            else if (l1.val < l2.val) {
-//                l1.next = mergeTwoLists(l1.next, l2);
-//                return l1;
-//            }
-//            else {
-//                l2.next = mergeTwoLists(l1, l2.next);
-//                return l2;
+//        System.out.println();
+//    }
+
+//        public static ListNode mergeKLists(ListNode[] lists) {
+//            ListNode result = null; // no result yet
+//
+//            // merge lists one by one
+//            for(int i = 0; i < lists.length; i++) {
+//                ListNode list = lists[i];
+//
+//                // merge current list with the prevuous result
+//                result = new Gfg().sortedMerge(result, list);
 //            }
 //
+//            return result;
+//        }
+
+//    public static void main(String[] args){
+//        MergeLists m1 = sortList(3).get(1);
+//        MergeLists m2 = sortList(3).get(2);
+//        m1.head = new Gfg().sortedMerge(m1.head,
+//                m2.head);
+//        m1.printList();
+//    }
+    }
+
+//        static class Gfg
+//        {
+//            /* Takes two lists sorted in
+//            increasing order, and splices
+//            their nodes together to make
+//            one big sorted list which is
+//            returned. */
+//            ListNode sortedMerge(ListNode headA, ListNode headB)
+//            {
+//
+//    /* a dummy first node to
+//       hang the result on */
+//                ListNode dummyNode = new ListNode(0);
+//
+//    /* tail points to the
+//    last result node */
+//                ListNode tail = dummyNode;
+//                while(true)
+//                {
+//
+//        /* if either list runs out,
+//        use the other list */
+//                    if(headA == null)
+//                    {
+//                        tail.next = headB;
+//                        break;
+//                    }
+//                    if(headB == null)
+//                    {
+//                        tail.next = headA;
+//                        break;
+//                    }
+//
+//        /* Compare the data of the two
+//        lists whichever lists' data is
+//        smaller, append it into tail and
+//        advance the head to the next Node
+//        */
+//                    if(headA.val <= headB.val)
+//                    {
+//                        tail.next = headA;
+//                        headA = headA.next;
+//                    }
+//                    else
+//                    {
+//                        tail.next = headB;
+//                        headB = headB.next;
+//                    }
+//
+//                    /* Advance the tail */
+//                    tail = tail.next;
+//                }
+//                return dummyNode.next;
+//            }
 //        }
 
 
 
-    }
 }
