@@ -6,11 +6,13 @@ public class Phase1
 {
 
     //read input file and form an array
-    public static ArrayList<Integer> input(){
+    public static ArrayList<Integer> input()
+    {
         Scanner sc = null;
         ArrayList<Integer> readInput = new ArrayList<>();
 
-        try {
+        try
+        {
             sc = new Scanner(new FileInputStream("./src/assignment1/input.txt"));
         }catch (FileNotFoundException e){
             System.out.println("Could not open input file");
@@ -21,7 +23,6 @@ public class Phase1
             readInput.add(Integer.parseInt(num));
         }
         return readInput;
-
     }
 
     //Generate sorted Blocks using selection sort

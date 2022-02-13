@@ -1,7 +1,8 @@
 package assignment1;
 
     // Java program to merge k sorted arrays of size n each
-    public class MergeKSortedLists {
+    public class MergeKSortedLists
+    {
 
         /* Takes two lists sorted in increasing order, and merge
         their nodes together to make one big sorted list. Below
@@ -78,15 +79,8 @@ package assignment1;
                 int BlockSize = 4;
                 for(int j =0; j< BlockSize; j++)
                 {
-                    if(j == 0)
-                    {
-                        arr[i] = new Node(Phase2.sortList(BlockNum).get(i).get(j));
-                    }
-                    else
-                    {
-                        arr[i].next = new Node(Phase2.sortList(BlockNum).get(i).get(j));
-                        arr[i] = arr[i].next;
-                    }
+                    arr[i] = new Node(Phase2.sortList(BlockNum).get(i).get(j));
+                    arr[i] = arr[i].next;
                 }
             // Merge all lists
             Node head = mergeKLists(arr, BlockNum - 1);
@@ -95,7 +89,8 @@ package assignment1;
             return arr;
     }
 
-    static class Node {
+    static class Node
+    {
         int data;
         Node next;
         Node(int data)
