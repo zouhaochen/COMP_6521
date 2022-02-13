@@ -21,7 +21,7 @@ public class Phase1 {
         return readInput;
 
     }
-    //Generate sorted Blocks
+    //Generate sorted Blocks using selection sort
     public static List<List<Integer>> sortBlocks(ArrayList<Integer> readInput){
         System.out.println("Phase 1: ");
         System.out.println("-----------------");
@@ -36,6 +36,8 @@ public class Phase1 {
             for (int j = i; j < i + blockSize && j < readInput.size(); j++) {
                 list.add(readInput.get(j));
             }
+            System.out.println("Before sorting: " +list.toString());
+            System.out.println();
             for (int k = 0; k < list.size(); k++) {
                 // find position of smallest num between (i + 1)th element and last element
                 int pos = k;
@@ -48,6 +50,8 @@ public class Phase1 {
                 list.set(pos, list.get(k));
                 list.set(k, min);
             }
+            System.out.println("After sorting: " +list.toString());
+            System.out.println();
             al.add(list);
         }
         return al;
@@ -64,14 +68,12 @@ public class Phase1 {
                 {
                     out.write(each +"\r\n");
                 }
-                out.close();
-                System.out.println("SubList text file is created");
+                System.out.println("SubList text file" + i+1 +"is created");
             }
             catch (IOException e)
             {
                 System.out.println("Exception occurs");
             }
-            System.out.println(i);
         }
 
     }
