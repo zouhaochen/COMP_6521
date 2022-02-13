@@ -80,11 +80,11 @@ package assignment1;
                 {
                     if(j == 0)
                     {
-                        arr[i] = new Node(Phase2.MergeLists.sortList(BlockNum).get(i).get(j));
+                        arr[i] = new Node(Phase2.sortList(BlockNum).get(i).get(j));
                     }
                     else
                     {
-                        arr[i].next = new Node(Phase2.MergeLists.sortList(BlockNum).get(i).get(j));
+                        arr[i].next = new Node(Phase2.sortList(BlockNum).get(i).get(j));
                         arr[i] = arr[i].next;
                     }
                 }
