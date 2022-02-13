@@ -29,7 +29,6 @@ public class Phase1 {
         int blockSize;
         System.out.println("Please enter block size : ");
         blockSize = kb.nextInt();
-        kb.close();
         List<List<Integer>> al = new ArrayList<>();
         for (int i = 0; i < readInput.size(); i += blockSize) {
             List<Integer> list = new ArrayList<>();
@@ -37,7 +36,6 @@ public class Phase1 {
                 list.add(readInput.get(j));
             }
             System.out.println("Before sorting: " +list.toString());
-            System.out.println();
             for (int k = 0; k < list.size(); k++) {
                 // find position of smallest num between (i + 1)th element and last element
                 int pos = k;
@@ -68,13 +66,11 @@ public class Phase1 {
                 {
                     out.write(each +"\r\n");
                 }
-                System.out.println("SubList text file" + i+1 +"is created");
             }
             catch (IOException e)
             {
                 System.out.println("Exception occurs");
             }
         }
-
     }
 }

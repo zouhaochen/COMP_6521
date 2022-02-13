@@ -11,6 +11,7 @@ import java.util.Scanner;
 
 public class Main
 {
+    static Scanner keyboard = new Scanner(System.in);
 
     public static void main(String[] args)
     {
@@ -24,7 +25,6 @@ public class Main
             System.out.println("2. Display the random list.");
             System.out.println("3. Run 2PMMS.");
             System.out.println("4. Exit.");
-            Scanner keyboard = new Scanner(System.in);
             String inputChoice = keyboard.nextLine();
 
             while (!inputChoice.equals("1") && !inputChoice.equals("2") && !inputChoice.equals("3") && !inputChoice.equals("4")) {
@@ -59,6 +59,7 @@ public class Main
                     System.out.println();
                     break;
                 case "2":
+                    DisplayRandom.displayRandom();
                     break;
                 case "3":
                     ArrayList<Integer> input = Phase1.input();
