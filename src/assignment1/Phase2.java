@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Phase2
 {
-    //Merge sorting for all sub lists
+    //Read from all sub lists
     public static List<List<Integer>>sortList (int BlockNum)
     {
         Scanner sc = null;
@@ -30,9 +30,7 @@ public class Phase2
                 subInput.add(Integer.parseInt(num));
             }
             readInput.add(subInput);
-            System.out.println(subInput);
         }
-        System.out.println(readInput);
         return readInput;
     }
 }

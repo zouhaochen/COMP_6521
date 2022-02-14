@@ -72,9 +72,7 @@ public class Main
                     ArrayList<Integer> input = Phase1.input();
                     List<List<Integer>> blocks = Phase1.sortBlocks(input);
                     Phase1.generateSubFiles(blocks);
-                    int BlockNum = Phase1.sortBlocks(input).size();
-                    Phase2.sortList(BlockNum);
-
+                    int BlockNum = blocks.size();
                     MergeKSortedLists.arr(BlockNum);
                     break;
                 case "4":

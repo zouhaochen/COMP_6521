@@ -1,8 +1,23 @@
 package assignment1;
 
-    // Java program to merge k sorted arrays of size n each
-    public class MergeKSortedLists
+class Node
+{
+    int data;
+    Node next;
+
+    Node()
     {
+
+    }
+    // Utility function to create a new node.
+    Node(int key)
+    {
+        data = key;
+        next = null;
+    }
+}
+    // Java program to merge k sorted arrays of size n each
+    public class MergeKSortedLists {
 
         /* Takes two lists sorted in increasing order, and merge
         their nodes together to make one big sorted list. Below
@@ -27,7 +42,6 @@ package assignment1;
                 result = b;
                 result.next = SortedMerge(a, b.next);
             }
-
             return result;
         }
 
@@ -61,46 +75,43 @@ package assignment1;
         /* Function to print nodes in a given linked list */
         public static void printList(Node node)
         {
+            System.out.println("Fully sorted list : ");
             while (node != null) {
                 System.out.print(node.data + " ");
                 node = node.next;
             }
+            System.out.println();
         }
 
 
-        public static Node[] arr(int BlockNum)
+        public static void arr(int BlockNum)
         {
 
 
             // an array of pointers storing the head nodes
             // of the linked lists
             Node arr[] = new Node[BlockNum];
-            for(int i =0; i < BlockNum+1; i++){
-                int BlockSize = 4;
-                for(int j =0; j< BlockSize; j++)
+            for(int i = 0; i < arr.length; i++)
+            {
+                for(int j = Phase2.sortList(BlockNum).get(i).size() - 1 ; j >= 0; j--)
                 {
-                    arr[i] = new Node(Phase2.sortList(BlockNum).get(i).get(j));
-                    arr[i] = arr[i].next;
+                    arr[i] = push(arr[i], Phase2.sortList(BlockNum).get(i).get(j));
                 }
+            }
             // Merge all lists
             Node head = mergeKLists(arr, BlockNum - 1);
             printList(head);
-        }
-            return arr;
+
     }
 
-    static class Node
-    {
-        int data;
-        Node next;
-        Node(int data)
+        public static assignment1.Node push(assignment1.Node head_ref, int new_data)
         {
-            this.data = data;
-        }
-        public static Node getNext(Node node){
-            node = node.next;
-            return node;
+            assignment1.Node new_node = new assignment1.Node();
+            new_node.data = new_data;
+            new_node.next = head_ref;
+            head_ref = new_node;
+            return head_ref;
         }
     }
-    }
+
 
