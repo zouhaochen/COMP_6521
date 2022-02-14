@@ -27,7 +27,7 @@ public class Phase1
 
     //Generate sorted Blocks using selection sort
     public static List<List<Integer>> sortBlocks(ArrayList<Integer> readInput){
-        System.out.println("Phase 1: ");
+        System.out.println("\nPhase 1: ");
         System.out.println("-----------------");
         Scanner kb = new Scanner(System.in);
         int blockSize;

@@ -75,6 +75,8 @@ class Node
         /* Function to print nodes in a given linked list */
         public static void printList(Node node)
         {
+            System.out.println("Phase 2: ");
+            System.out.println("-----------------");
             System.out.println("Fully sorted list : ");
             while (node != null) {
                 System.out.print(node.data + " ");

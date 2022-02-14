@@ -74,6 +74,9 @@ public class Main
                     Phase1.generateSubFiles(blocks);
                     int BlockNum = blocks.size();
                     MergeKSortedLists.arr(BlockNum);
+                    System.out.println("The number of intermediate runs: " + (BlockNum-1));
+                    System.out.println("The number of passes needed: " + Math.ceil(passCount(BlockNum)));
+                    System.out.println();
                     break;
                 case "4":
                     flag = false;
@@ -83,5 +86,10 @@ public class Main
             }
         }
 
+    }
+
+    public static double passCount (double N)
+    {
+        return Math.log(N)/Math.log(2);
     }
 }
