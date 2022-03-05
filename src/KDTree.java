@@ -82,7 +82,8 @@ public class KDTree<k>
                 findMinFunction(root.right, d, depth+1),d);
     }
 
-    public static Node findMin(Node root, int d){
+    public static Node findMin(Node root, int d)
+    {
         return findMinFunction(root, d, 0);
     }
 
@@ -112,6 +113,7 @@ public class KDTree<k>
         {
             return null;
         }
+
         int currentD = depth % k;
 
         if(arePointsSame(root.point, point))
@@ -126,15 +128,15 @@ public class KDTree<k>
             {
                 Node min = findMin(root.left, currentD);
                 copyPoint(root.point, min.point);
-                root.right = deleteNodeFunction(root.left, min.point, depth+1);
+                root.left = deleteNodeFunction(root.left, min.point, depth+1);
             }
             else
                 {
-                    root = null;
                     return null;
                 }
             return root;
         }
+
         if(point[currentD] < root.point[currentD])
         {
             root.left = deleteNodeFunction(root.left, point, depth+1);
@@ -167,6 +169,7 @@ public class KDTree<k>
         System.out.print("\n");
         for (int i = COUNT; i < space; i++)
             System.out.print(" ");
+
         System.out.print("{" + root.point[0] +", "+ root.point[1] +"}"+"\n");
 
         // Process left child
@@ -183,10 +186,9 @@ public class KDTree<k>
     public static void main(String[] args)
     {
         Node root = null;
-        int dataSet[][] = new int[][]{{30, 40}, {5, 25}, {70, 70}, {10, 12}, {50, 30}, {35, 45}};
+        int dataSet[][] = new int[][]{{3, 6}, {17, 15}, {13, 15}, {6, 12}, {9, 1}, {2, 7},{10,19}};
 
-        //int n = dataSet.length / dataSet[0].length;
-        int n = 6;
+        int n = dataSet.length;
 
         for(int i =0; i<n; i++)
         {
@@ -194,9 +196,9 @@ public class KDTree<k>
         }
         print2D(root);
         System.out.println("----------------------------------------------");
-        root = deleteNode(root, dataSet[0]);
+
+        root = deleteNode(root, dataSet[1]);
         print2D(root);
-        System.out.println(" after delete (30,40) : "+ root.point[0]+ root.point[1]);
     }
 
 
