@@ -152,17 +152,17 @@ public class KDTree<k>
     public static void main(String[] args)
     {
         Node root = null;
-        int point[][] = new int[][]{{30, 40}, {5, 25}, {70, 70}, {10, 12}, {50, 30}, {35, 45}};
+        int dataSet[][] = new int[][]{{30, 40}, {5, 25}, {70, 70}, {10, 12}, {50, 30}, {35, 45}};
 
-        //int n = point.length / point[0].length;
+        //int n = dataSet.length / dataSet[0].length;
         int n = 6;
 
         for(int i =0; i<n; i++)
         {
-            root = insert(root, point[i]);
+            root = insert(root, dataSet[i]);
         }
 
-        root = deleteNode(root, point[0]);
+        root = deleteNode(root, dataSet[0]);
         System.out.println(" after delete (30,40) : "+ root.point[0]+ root.point[1]);
     }
 
