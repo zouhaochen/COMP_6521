@@ -1,6 +1,7 @@
 public class KDTree<k>
 {
     public static int k = 2;
+    static final int COUNT = 10;
 
     public static class Node
     {
@@ -149,6 +150,36 @@ public class KDTree<k>
         return deleteNodeFunction(root, point, 0);
     }
 
+    static void print2DUtil(Node root, int space)
+    {
+        // Base case
+        if (root == null)
+            return;
+
+        // Increase distance between levels
+        space += COUNT;
+
+        // Process right child first
+        print2DUtil(root.right, space);
+
+        // Print current node after space
+        // count
+        System.out.print("\n");
+        for (int i = COUNT; i < space; i++)
+            System.out.print(" ");
+        System.out.print("{" + root.point[0] +", "+ root.point[1] +"}"+"\n");
+
+        // Process left child
+        print2DUtil(root.left, space);
+    }
+
+    // Wrapper over print2DUtil()
+    static void print2D(Node root)
+    {
+        // Pass initial space count as 0
+        print2DUtil(root, 0);
+    }
+
     public static void main(String[] args)
     {
         Node root = null;
@@ -161,8 +192,10 @@ public class KDTree<k>
         {
             root = insert(root, dataSet[i]);
         }
-
+        print2D(root);
+        System.out.println("----------------------------------------------");
         root = deleteNode(root, dataSet[0]);
+        print2D(root);
         System.out.println(" after delete (30,40) : "+ root.point[0]+ root.point[1]);
     }
 
