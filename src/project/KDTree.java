@@ -1,3 +1,7 @@
+package project;
+
+import java.util.Scanner;
+
 public class KDTree<k>
 {
     public static int k = 2;
@@ -186,7 +190,43 @@ public class KDTree<k>
     public static void main(String[] args)
     {
         Node root = null;
-        int dataSet[][] = new int[][]{{3, 6}, {17, 15}, {13, 15}, {6, 12}, {9, 1}, {2, 7},{10,19}};
+        int n = 0;
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("KD tree implementation program.");
+        System.out.println("\nPlease enter the number of record:");
+
+        n = keyboard.nextInt();
+        int[][] dataSet = new int[n][2];
+
+        System.out.println("\nPlease enter the information of each record:");
+        for(int i = 0; i < dataSet.length; i++)
+        {
+            if(i == 0)
+            {
+                System.out.println("The NO.1 record is the root of the KD tree.");
+            }
+            System.out.println("Please enter the first number of record NO." + (i+1) + ":");
+            dataSet[i][0] = keyboard.nextInt();
+
+            System.out.println("Please enter the second number of record NO." + (i+1) + ":");
+            dataSet[i][1] = keyboard.nextInt();
+        }
+
+        System.out.println("\nRecord information input finish.");
+        System.out.println("KD tree display as follow:");
+
+        for(int i =0; i<n; i++)
+        {
+            root = insert(root, dataSet[i]);
+        }
+        print2D(root);
+
+
+
+
+/*
+        int dataSet[][] = new int[][]{{30, 40}, {50, 30}, {35, 45}, {5, 25}, {70, 70}, {10, 12}};
 
         int n = dataSet.length;
 
@@ -196,11 +236,9 @@ public class KDTree<k>
         }
         print2D(root);
         System.out.println("----------------------------------------------");
-
         root = deleteNode(root, dataSet[1]);
         print2D(root);
+ */
     }
-
-
 }
 
