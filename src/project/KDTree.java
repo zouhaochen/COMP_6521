@@ -1,5 +1,16 @@
 package project;
 
+import assignment1.DisplayRandom;
+import assignment1.MergeKSortedLists;
+import assignment1.Phase1;
+import assignment1.RandomNumber;
+
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class KDTree<k>
@@ -221,6 +232,57 @@ public class KDTree<k>
             root = insert(root, dataSet[i]);
         }
         print2D(root);
+
+        boolean flag = true;
+
+        while(flag)
+        {
+            System.out.println("\nPlease input a choice number:");
+            System.out.println("1. Add a record.");
+            System.out.println("2. Delete a record.");
+            System.out.println("3. Display the tree.");
+            System.out.println("4. Exit.");
+
+            Scanner scanner = new Scanner(System.in);
+            String inputChoice = scanner.nextLine();
+
+            while (!inputChoice.equals("1") && !inputChoice.equals("2") && !inputChoice.equals("3") && !inputChoice.equals("4"))
+            {
+                System.out.println("Please input a valid choice.");
+                inputChoice = scanner.nextLine();
+            }
+
+            switch (inputChoice)
+            {
+                case "1":
+
+                    break;
+
+                case "2":
+                    System.out.println("\nPlease enter the NO. of record you want to delete:");
+                    int number = scanner.nextInt();
+
+                    if(number>n)
+                    {
+                        System.out.println("Invalid number.");
+                        break;
+                    }
+
+                    root = deleteNode(root, dataSet[(number-1)]);
+                    print2D(root);
+                    break;
+
+                case "3":
+                    print2D(root);
+                    break;
+
+                case "4":
+                    flag = false;
+                    System.out.println("\nExit the program, see you next time!");
+                    System.exit(0);
+                    break;
+            }
+        }
 
 
 
